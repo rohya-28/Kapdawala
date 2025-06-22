@@ -29,7 +29,6 @@ export const onboarding = [
   import arrowDown from "@/assets/icons/arrow-down.png";
 import arrowUp from "@/assets/icons/arrow-up.png";
 import backArrow from "@/assets/icons/back-arrow.png";
-import chat from "@/assets/icons/chat.png";
 import checkmark from "@/assets/icons/check.png";
 import close from "@/assets/icons/close.png";
 import dollar from "@/assets/icons/dollar.png";
@@ -63,6 +62,8 @@ import realtime from "@/assets/images/realtime.webp";
 import compareReport from "@/assets/images/compre-report.webp";
 import Track from "@/assets/images/reack-attendance.webp";
 import signUpbg from "@/assets/images/signup-bg.webp";
+import cart from "@/assets/icons/shopping-cart.png"
+import chat from "@/assets/icons/Vector.png"
 
 export const images = {
   onBoarding,
@@ -74,6 +75,7 @@ export const images = {
 };
 
 export const icons = {
+  chat,
   EndTime,
   chart,
   invite,
@@ -105,4 +107,5 @@ export const icons = {
   startTime,
   refresh,
   trash,
+  cart
 };

@@ -72,7 +72,7 @@ export default function Layout() {
             title: "Invite",
             headerShown: false,
             tabBarIcon: ({ focused }) => (
-              <TabIcon source={icons.person} focused={focused} />
+              <TabIcon source={icons.cart} focused={focused} />
             ),
           }}
         />
@@ -82,7 +82,7 @@ export default function Layout() {
             title: "support",
             headerShown: false,
             tabBarIcon: ({ focused }) => (
-              <TabIcon source={icons.person} focused={focused} />
+              <TabIcon source={icons.chat} focused={focused} />
             ),
           }}
         />
