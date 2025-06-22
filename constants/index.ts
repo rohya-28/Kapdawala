@@ -109,3 +109,25 @@ export const icons = {
   trash,
   cart
 };
+
+export const shopData = [
+  {
+    id: "laundry-king",
+    title: "Laundry King",
+    offer: "Flat 20% off on all services",
+    services: "Washing, Ironing, Dry Clean",
+    pickup: "Free Pickup & Delivery",
+    rating: 4.5,
+  },
+  {
+    id: "clean-clothes-hub",
+    title: "Clean Clothes Hub",
+    offer: "₹100 off on 1st order",
+    services: "Dry Cleaning, Stain Removal",
+    pickup: "Pickup within 30 mins",
+    rating: 4.7,
+  },
+  // ... more shops
+];
+
+  

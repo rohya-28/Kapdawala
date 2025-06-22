@@ -2,16 +2,18 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 
 type RecommendedCardProps = {
+  id: string; // ✅ NEW: Accepts a unique identifier
   title: string;
   offer: string;
   services: string;
   pickup: string;
   rating: number;
   onBookNow?: () => void;
-  onDetails?: () => void;
+  onDetails?: (id: string) => void; // ✅ NEW: Passes id to details
 };
 
 const Shops = ({
+  id,
   title,
   offer,
   services,
@@ -46,7 +48,7 @@ const Shops = ({
 
         <TouchableOpacity
           className="border border-blue-600 px-4 py-2 rounded-md"
-          onPress={onDetails}
+          onPress={() => onDetails?.(id)} // ✅ Pass id when calling onDetails
         >
           <Text className="text-blue-600 font-JakartaBold text-sm">Details</Text>
         </TouchableOpacity>

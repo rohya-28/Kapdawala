@@ -3,9 +3,10 @@ import { Text, View, TouchableOpacity, ActivityIndicator, ScrollView } from "rea
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import InputField from "@/components/InputField";
-import { icons } from "@/constants";
+import { icons, shopData } from "@/constants";
 import { useCurrentLocation } from "@/hooks/useCurrentLocation"; // adjust path if needed
 import Shops from "@/components/shops";
+import { router } from "expo-router";
 
 const Home = () => {
   const { location, errorMsg, loading, detectLocation } = useCurrentLocation();
@@ -78,17 +79,44 @@ const Home = () => {
       </ScrollView>
     </View>
 
-    <View className="w-[94%] mt-4">
+    <ScrollView className="w-[94%] mt-4">
+  {shopData.map((shop) => (
     <Shops
-    title="Laundry King"
-    offer="Flat 20% off on all services"
-    services="Washing, Ironing, Dry Clean"
-    pickup="Free Pickup & Delivery"
-    rating={4.5}
-    onBookNow={() => console.log("Book Now pressed")}
-    onDetails={() => console.log("Details pressed")}
+      key={shop.id}
+      id={shop.id}
+      title={shop.title}
+      offer={shop.offer}
+      services={shop.services}
+      pickup={shop.pickup}
+      rating={shop.rating}
+      onBookNow={() =>
+        router.push({
+          pathname: "/service",
+          params: {
+            storeId: shop.id,
+            storeName: shop.title,
+            offer: shop.offer,
+            pickup: shop.pickup,
+          },
+        })
+      }
+      onDetails={() =>
+        router.push({
+          pathname: "/(shops)/[id]",
+          params: {
+            id: shop.id,
+            title: shop.title,
+            offer: shop.offer,
+            services: shop.services,
+            pickup: shop.pickup,
+            rating: shop.rating.toString(),
+          },
+        })
+      }
     />
-    </View>
+  ))}
+</ScrollView>
+
 
 
       </View>
