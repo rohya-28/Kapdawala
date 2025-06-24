@@ -115,7 +115,7 @@ const OrderDetailsPage = () => {
     return (
       <View className="flex-1 justify-center items-center bg-gray-50 p-5">
         <Feather name="info" size={48} color="orange" />
-        <Text className="mt-4 text-xl font-bold text-orange-600">No Order Found</Text>
+        <Text className="mt-4 text-xl font-urbanist text-orange-600">No Order Found</Text>
         <Text className="mt-2 text-base text-gray-700 text-center">
             The order you are looking for does not exist.
         </Text>
@@ -127,55 +127,55 @@ const OrderDetailsPage = () => {
     <ScrollView className="flex-1 bg-gray-50 p-5">
       <Stack.Screen options={{ title: `Order #${orderDetails.id}` }} />
       
-      <View className="mt-6 bg-white rounded-xl p-5 mb-5 shadow-md">
+      <View className="mt-24 bg-white rounded-xl p-5 mb-5 shadow-md">
         <View className="flex-row items-center justify-between mb-3">
-          <Text className="text-xl font-extrabold text-gray-900">Order Summary</Text>
+          <Text className="text-xl font-urbanist text-gray-900">Order Summary</Text>
           <View className="bg-indigo-100 px-3 py-1 rounded-full">
             <Text className="text-indigo-700 text-xs font-semibold capitalize">{orderDetails.currentStatus}</Text>
           </View>
         </View>
-        <Text className="text-sm text-gray-600 mb-2">
-            Order ID: <Text className="font-semibold">{orderDetails.id}</Text>
+        <Text className="text-sm font-urbanist text-gray-600 mb-2">
+            Order ID: <Text className="font-inter">{orderDetails.id}</Text>
         </Text>
-        <Text className="text-sm text-gray-600 mb-2">
-            Expected Delivery: <Text className="font-semibold">{orderDetails.expectedDelivery}</Text>
+        <Text className="text-sm font-urbanist text-gray-600 mb-2">
+            Expected Delivery: <Text className="font-inter">{orderDetails.expectedDelivery}</Text>
         </Text>
-        <Text className="text-sm text-gray-600">
-            Total: <Text className="font-bold text-lg text-indigo-700">₹{orderDetails.totalPrice.toFixed(2)}</Text>
+        <Text className="text-sm font-urbanist text-gray-600">
+            Total: <Text className="font-inter text-lg text-indigo-700">₹{orderDetails.totalPrice.toFixed(2)}</Text>
         </Text>
       </View>
 
       <View className="bg-white rounded-xl p-5 mb-5 shadow-md">
-        <Text className="text-xl font-extrabold text-gray-900 mb-4">Items</Text>
+        <Text className="text-xl font-urbanist text-gray-900 mb-4">Items</Text>
         {orderDetails.items.map((item, index) => (
-          <View key={index} className="flex-row justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
-            <Text className="text-base text-gray-800">{item.name} (x{item.quantity})</Text>
-            <Text className="text-base font-semibold text-gray-800">₹{item.price.toFixed(2)}</Text>
+          <View key={index} className="flex-row  justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
+            <Text className="text-base font-urbanist text-gray-800">{item.name} (x{item.quantity})</Text>
+            <Text className="text-base font-inter text-gray-800">₹{item.price.toFixed(2)}</Text>
           </View>
         ))}
       </View>
 
       <View className="bg-white rounded-xl p-5 mb-5 shadow-md">
-        <Text className="text-xl font-extrabold text-gray-900 mb-4">Addresses</Text>
+        <Text className="text-xl font-urbanist text-gray-900 mb-4">Addresses</Text>
         <View className="flex-row items-center mb-3">
           <Feather name="map-pin" size={20} color="#4F46E5" className="mr-3" />
           <View>
-            <Text className="text-base font-semibold text-gray-800">Pickup Address:</Text>
+            <Text className="text-base font-urbanist text-gray-800">Pickup Address:</Text>
             <Text className="text-sm text-gray-600">{orderDetails.pickupAddress}</Text>
           </View>
         </View>
         <View className="flex-row items-center">
           <Feather name="truck" size={20} color="#4F46E5" className="mr-3" />
           <View>
-            <Text className="text-base font-semibold text-gray-800">Delivery Address:</Text>
-            <Text className="text-sm text-gray-600">{orderDetails.deliveryAddress}</Text>
+            <Text className="text-base font-urbanist text-gray-800">Delivery Address:</Text>
+            <Text className="text-sm font-inter text-gray-600">{orderDetails.deliveryAddress}</Text>
           </View>
         </View>
       </View>
 
       <TouchableOpacity className="mt-4 mb-10 bg-indigo-600 py-4 rounded-full flex-row items-center justify-center shadow-md shadow-indigo-500/50">
         <Feather name="message-circle" size={20} color="white" className="mr-2" />
-        <Text className="text-white text-lg font-bold">Contact Support</Text>
+        <Text className="text-white text-lg font-urbanist">Contact Support</Text>
       </TouchableOpacity>
     </ScrollView>
   );

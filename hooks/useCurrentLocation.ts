@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import * as Location from 'expo-location';
 
 type LocationCoords = {
@@ -9,12 +9,15 @@ type LocationCoords = {
 export const useCurrentLocation = () => {
   const [location, setLocation] = useState<LocationCoords>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    (async () => {
-      setLoading(true);
-      let { status } = await Location.requestForegroundPermissionsAsync();
+  const detectLocation = async () => {
+    setLoading(true);
+    setErrorMsg(null);
+    setLocation(null);
+
+    try {
+      const { status } = await Location.requestForegroundPermissionsAsync();
 
       if (status !== 'granted') {
         setErrorMsg('Permission to access location was denied');
@@ -24,12 +27,18 @@ export const useCurrentLocation = () => {
 
       const {
         coords: { latitude, longitude },
-      } = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.High });
+      } = await Location.getCurrentPositionAsync({
+        accuracy: Location.Accuracy.High,
+      });
 
       setLocation({ latitude, longitude });
+    } catch (error) {
+      setErrorMsg('Error detecting location');
+    } finally {
       setLoading(false);
-    })();
-  }, []);
+    }
+  };
 
-  return { location, errorMsg, loading };
+  return { location, errorMsg, loading, detectLocation };
 };
+

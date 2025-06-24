@@ -3,17 +3,22 @@ import { useLocalSearchParams, useRouter } from "expo-router"; // Assuming these
 import { SafeAreaView } from "react-native-safe-area-context"; // For better layout on different devices
 
 const ShopDetails = () => {
-  const router = useRouter(); // If not used directly here, it's good to keep if you plan navigation
+  const router = useRouter();
   const { id, offer, services, pickup, rating } = useLocalSearchParams();
 
   return (
     <SafeAreaView className="flex-1 0 mt-12">
       <ScrollView className="flex-1 p-4">
+
+         <View className="mb-4 ">
+          <Text className="font-urbanist text-gray-800 mb-2 text-2xl ml-1">Details</Text>
+         </View>
+
         {/* Shop Header Section */}
         <View className="bg-white rounded-xl shadow-md p-5 mb-4">
-          <Text className="text-3xl font-extrabold text-gray-800 mb-2">{id || "Shop Name"}</Text>
+          <Text className=" font-urbanist text-gray-800 mb-2 text-xl">{id || "Shop Name"}</Text>
           <View className="flex-row items-center mb-1">
-            <Text className="text-lg font-semibold text-green-600 mr-2">{offer || "No Offer"}</Text>
+            <Text className="text-lg font-inter text-green-600 mr-2">{offer || "No Offer"}</Text>
             {rating && (
               <View className="flex-row items-center bg-yellow-400 px-2 py-1 rounded-full">
                 <Text className="text-white text-base font-bold mr-1">⭐</Text>
@@ -21,15 +26,15 @@ const ShopDetails = () => {
               </View>
             )}
           </View>
-          <Text className="text-gray-600 text-base">{services || "Services not listed"}</Text>
+          <Text className="text-gray-600 text-base font-urbanist">{services || "Services not listed"}</Text>
         </View>
 
         {/* Details Section */}
         <View className="bg-white rounded-xl shadow-md p-5 mb-4">
-          <Text className="text-xl font-bold text-gray-800 mb-3">Key Details</Text>
+          <Text className="text-xl font-urbanist text-gray-800 mb-3">Key Details</Text>
           <View className="flex-row justify-between items-center mb-2">
-            <Text className="text-gray-700 text-base">
-              <Text className="font-semibold">Pickup:</Text> {pickup || "Not specified"}
+            <Text className="text-gray-700 font-inter  text-base">
+              <Text className="font-urbanist">Pickup:</Text> {pickup || "Not specified"}
             </Text>
           </View>
           {/* You could add more details here, e.g., working hours, address */}
@@ -37,8 +42,8 @@ const ShopDetails = () => {
 
         {/* Description Section */}
         <View className="bg-white rounded-xl shadow-md p-5 mb-4">
-          <Text className="text-xl font-bold text-gray-800 mb-3">About Us</Text>
-          <Text className="text-gray-700 text-base leading-relaxed">
+          <Text className="text-xl font-urbanist  text-gray-800 mb-3">About Us</Text>
+          <Text className="text-gray-700 font-inter text-base leading-relaxed">
             This shop offers premium cleaning services with best-in-class customer support and timely pickups. You can rely on their ratings and past customer experiences for a top-notch service. We are committed to providing an exceptional and hassle-free experience for all your cleaning needs.
           </Text>
         </View>
@@ -46,7 +51,7 @@ const ShopDetails = () => {
         {/* Call to Action/Other sections could go here */}
         {/* Example: A button to book a service */}
         <View className="mt-4">
-          <Text className="bg-blue-600 text-white text-center py-4 rounded-xl text-lg font-semibold"
+          <Text className="bg-blue-600 text-white text-center py-4 rounded-xl text-lg font-urbanist"
             onPress={() => router.push({pathname: "/service"}, )} // Replace with actual navigation/action
           >
             Book Service Now

@@ -25,16 +25,16 @@ const Shops = ({
   return (
     <View className="bg-white shadow-md p-4 rounded-xl mb-4">
       {/* Title */}
-      <Text className="text-lg font-JakartaBold text-black mb-1">{title}</Text>
+      <Text className="text-lg font-urbanist text-black mb-1">{title}</Text>
 
       {/* Offer and Services */}
-      <Text className="text-sm text-green-600 font-JakartaSemiBold">{offer}</Text>
+      <Text className="text-sm text-green-600 font-inter">{offer}</Text>
       <Text className="text-sm text-gray-600 mt-1">{services}</Text>
 
       {/* Pickup & Rating */}
       <View className="flex flex-row justify-between items-center mt-2">
-        <Text className="text-xs text-blue-500">{pickup}</Text>
-        <Text className="text-xs text-yellow-500 font-JakartaSemiBold">⭐ {rating}</Text>
+        <Text className="text-xs text-blue-500 font-inter">{pickup}</Text>
+        <Text className="text-xs text-yellow-500 font-inter">⭐ {rating}</Text>
       </View>
 
       {/* Buttons */}
@@ -43,14 +43,14 @@ const Shops = ({
           className="bg-blue-600 px-4 py-2 rounded-md"
           onPress={onBookNow}
         >
-          <Text className="text-white font-JakartaBold text-sm">Book Now</Text>
+          <Text className="text-white font-urbanist text-sm">Book Now</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           className="border border-blue-600 px-4 py-2 rounded-md"
           onPress={() => onDetails?.(id)} // ✅ Pass id when calling onDetails
         >
-          <Text className="text-blue-600 font-JakartaBold text-sm">Details</Text>
+          <Text className="text-blue-600 font-urbanist text-sm">Details</Text>
         </TouchableOpacity>
       </View>
     </View>

@@ -1,28 +1,44 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import React, { useCallback, useEffect, useState } from 'react';
+import * as SplashScreen from 'expo-splash-screen';
+import { View } from 'react-native';
 import { useFonts } from 'expo-font';
+import {
+  Urbanist_700Bold,
+  Urbanist_600SemiBold,
+} from '@expo-google-fonts/urbanist';
+import {
+  Inter_400Regular,
+  Inter_500Medium,
+} from '@expo-google-fonts/inter';
 import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
 
+SplashScreen.preventAutoHideAsync(); // 
 
 export default function RootLayout() {
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+  const [fontsLoaded] = useFonts({
+    Urbanist_700Bold,
+    Urbanist_600SemiBold,
+    Inter_400Regular,
+    Inter_500Medium,
   });
 
-  if (!loaded) {
-    // Async font loading only occurs in development.
-    return null;
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync(); // 
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null; // 
   }
 
   return (
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="(root)" options={{ headerShown: false }} />
-        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-       
-
-        <Stack.Screen name="+not-found" />
-      </Stack>
+    <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+        }}
+      />
+    </View>
   );
 }

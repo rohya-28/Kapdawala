@@ -3,39 +3,7 @@ import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router"; // 👈 Add router
-
-const availableServices = [
-  {
-    id: "wash",
-    name: "Premium Wash",
-    price: 50,
-    description: "Gentle wash for all fabric types, preserving fabric quality.",
-  },
-  {
-    id: "iron",
-    name: "Expert Ironing",
-    price: 10,
-    description: "Perfectly pressed clothes for a crisp and professional look.",
-  },
-  {
-    id: "dry",
-    name: "Eco Dry Cleaning",
-    price: 80,
-    description: "Eco-friendly care for delicate and intricate garments.",
-  },
-  {
-    id: "fold",
-    name: "Careful Folding",
-    price: 5,
-    description: "Neat folds, making your laundry ready for storage.",
-  },
-  {
-    id: "delivery",
-    name: "Express Delivery",
-    price: 30,
-    description: "Doorstep pickup & delivery, saving you time.",
-  },
-];
+import { availableServices } from "@/constants";
 
 const ServiceSelection = () => {
   const router = useRouter(); // 👈 Hook for navigation
@@ -96,11 +64,11 @@ const ServiceSelection = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-white">
-      <View className="p-6 border-b border-gray-200 shadow-md bg-white">
-      <Text className="text-3xl font-extrabold text-gray-900 leading-tight">
+      <View className="p-6  ">
+      <Text className="text-3xl font-urbanist text-gray-900 leading-tight">
     {storeName || "Choose Your Services"}
   </Text>
-        <Text className="text-base text-gray-600 mt-2">
+        <Text className="text-base font-inter text-gray-600 mt-2">
           Select the perfect care for your garments.
         </Text>
       </View>
@@ -112,11 +80,11 @@ const ServiceSelection = () => {
             className="flex-row items-center bg-white rounded-2xl shadow-xl mb-5 p-5 border border-gray-100"
           >
             <View className="flex-1 mr-4">
-              <Text className="text-lg font-bold text-indigo-700 mb-1">{service.name}</Text>
-              <Text className="text-sm text-gray-500 mb-2">{service.description}</Text>
-              <Text className="text-base font-semibold text-green-600">
+              <Text className="text-lg font-urbanist text-indigo-700 mb-1">{service.name}</Text>
+              <Text className="text-sm text-gray-500 font-inter mb-2">{service.description}</Text>
+              <Text className="text-base font-urbanist text-green-600">
                 ₹{service.price}
-                <Text className="text-gray-400 font-normal text-sm"> / item</Text>
+                <Text className="text-gray-400 font-urbanist text-sm"> / item</Text>
               </Text>
             </View>
 
@@ -135,7 +103,7 @@ const ServiceSelection = () => {
                 />
               </TouchableOpacity>
 
-              <Text className="text-xl font-bold text-gray-800 w-8 text-center">
+              <Text className="text-xl font-urbanist text-gray-800 w-8 text-center">
                 {service.quantity}
               </Text>
 
@@ -155,18 +123,18 @@ const ServiceSelection = () => {
         <View className="absolute bottom-32 left-4 right-4 bg-white border border-gray-200 p-5 shadow-2xl rounded-2xl">
           <View className="flex-row justify-between items-center">
             <View>
-              <Text className="text-base font-semibold text-gray-600">
+              <Text className="text-base font-urbanist text-gray-600">
                 {totalItems} Item{totalItems > 1 ? "s" : ""} selected
               </Text>
-              <Text className="text-3xl font-extrabold text-indigo-800 mt-1">
+              <Text className="text-3xl font-urbanist text-indigo-800 mt-1">
                 ₹{calculateTotal()}
               </Text>
             </View>
             <TouchableOpacity
-              className="bg-indigo-600 py-3 px-6 rounded-xl shadow-md flex-row items-center"
+              className="bg-indigo-600 py-3 px-6 rounded-xl   shadow-md flex-row items-center"
               onPress={handleProceed}
             >
-              <Text className="text-center text-white font-bold text-lg mr-2">
+              <Text className="text-center font-urbanist text-white  text-lg mr-2">
                 Proceed
               </Text>
               <AntDesign name="arrowright" size={20} color="white" />

@@ -18,7 +18,7 @@ const BookNow = () => {
   const { location, loading, errorMsg } = useCurrentLocation();
 
   const handlePayNow = () => {
-    // You can integrate payment gateway logic here
+    
     console.log("Processing payment...");
     console.log("Amount: ₹", total);
     console.log("Services:", services);
@@ -28,18 +28,18 @@ const BookNow = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-white px-4 pt-6">
-      <Text className="text-3xl font-extrabold text-indigo-700 mb-2">
+      <Text className="text-2xl font-urbanist text-indigo-700 mb-2">
         Booking for {storeName || "Laundry Store"}
       </Text>
 
       <View className="mb-6">
-        <Text className="text-lg font-bold text-gray-800 mb-2">📍 Location</Text>
+        <Text className="text-lg font-urbanist text-gray-800 mb-2">Location</Text>
         {loading ? (
           <ActivityIndicator size="small" color="#6D28D9" />
         ) : errorMsg ? (
           <Text className="text-red-500">{errorMsg}</Text>
         ) : location ? (
-          <Text className="text-base text-gray-600">
+          <Text className="font-inter text-gray-600">
             Latitude: {location.latitude.toFixed(4)}, Longitude:{" "}
             {location.longitude.toFixed(4)}
           </Text>
@@ -49,16 +49,16 @@ const BookNow = () => {
       </View>
 
       <View className="mb-6">
-        <Text className="text-lg font-bold text-gray-800 mb-2">🧺 Order Details</Text>
+        <Text className="text-lg font-urbanist text-gray-800 mb-2">Order Details</Text>
         <ScrollView className="max-h-60">
           {services.map((item, index) => (
             <View
               key={index}
               className="bg-gray-50 p-4 rounded-xl mb-3 border border-gray-200"
             >
-              <Text className="text-base font-semibold text-indigo-600">{item.name}</Text>
+              <Text className="text-base font-urbanist text-indigo-600">{item.name}</Text>
               <Text className="text-sm text-gray-500">{item.description}</Text>
-              <Text className="text-base text-gray-700 mt-1">
+              <Text className="text-base font-urbanist text-gray-700 mt-1">
                 {item.quantity} × ₹{item.price} = ₹{item.quantity * item.price}
               </Text>
             </View>
@@ -66,16 +66,16 @@ const BookNow = () => {
         </ScrollView>
       </View>
 
-      <View className="absolute bottom-5 left-4 right-4 bg-white border border-gray-200 p-5 shadow-2xl rounded-2xl">
+      <View className="absolute bottom-16 left-4 right-4 bg-white border border-gray-200 p-5 shadow-2xl rounded-2xl">
         <View className="flex-row justify-between items-center mb-3">
-          <Text className="text-xl font-bold text-indigo-700">Total: ₹{total}</Text>
+          <Text className="text-xl font-urbanist text-indigo-700">Total: ₹{total}</Text>
         </View>
 
         <TouchableOpacity
           onPress={handlePayNow}
           className="bg-indigo-600 flex-row justify-center items-center py-3 rounded-xl"
         >
-          <Text className="text-white font-bold text-lg mr-2">Pay Now</Text>
+          <Text className="text-white font-urbanist text-lg mr-2">Pay Now</Text>
           <AntDesign name="arrowright" size={20} color="white" />
         </TouchableOpacity>
       </View>

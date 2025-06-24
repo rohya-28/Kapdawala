@@ -31,7 +31,7 @@ import {
           <View className="my-2 w-full">
             <View>
               {label ? (
-                <Text className={`text-sm font-JakartaLight mb-3 ${labelStyle}`}>
+                <Text className={`text-sm font-urbanist mb-3 ${labelStyle}`}>
                   {label}
                 </Text>
               ) : (
@@ -47,14 +47,14 @@ import {
                 <Image source={icon} className={`w-6 h-6 ml-4 ${iconStyle}`} />
               )}
               <TextInput
-                className={`rounded-full p-[12px] font-JakartaSemiBold text-[15px] flex-1 ${inputStyle} text-left`}
+                className={`rounded-full p-[12px] font-inter text-[15px] flex-1 ${inputStyle} text-left`}
                 secureTextEntry={secureTextEntry}
                 {...props}
               />
             </View>
             {/* Error message display */}
             {error && (
-              <Text className="text-red-500 text-xs mt-1 font-JakartaRegular">
+              <Text className="text-red-500 text-xs mt-1 font-inter">
                 {error}
               </Text>
             )}

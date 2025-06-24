@@ -4,21 +4,21 @@ export const onboarding = [
       title: "Effortless Dry Cleaning Pick-Up & Delivery",
       description:
         "Schedule convenient pick-ups and deliveries right from your phone. Say goodbye to trips to the cleaner!",
-      image: "", // Suggestion: an image of clothes being picked up or delivered
+      image: require('@/assets/images/A.png'), // Suggestion: an image of clothes being picked up or delivered
     },
     {
       id: 2,
       title: "Real-Time Order Updates",
       description:
         "Track your garments every step of the way. Get instant notifications when your order is picked up, in process, and ready for delivery.",
-      image: "", // Suggestion: an image showing a phone with order status updates
+      image: require('@/assets/images/B.png') // Suggestion: an image showing a phone with order status updates
     },
     {
       id: 3,
       title: "Premium Care for Every Garment",
       description:
         "Trust your clothes to our expert cleaners. We use eco-friendly methods to ensure your garments are returned spotless and perfectly pressed.",
-      image:"", // Suggestion: an image of perfectly cleaned/pressed clothes or the cleaning process
+        image: require('@/assets/images/C.png'), // Suggestion: an image of perfectly cleaned/pressed clothes or the cleaning process
     },
   ];
   
@@ -82,7 +82,6 @@ export const icons = {
   arrowDown,
   arrowUp,
   backArrow,
-  chat,
   checkmark,
   close,
   dollar,
@@ -127,7 +126,107 @@ export const shopData = [
     pickup: "Pickup within 30 mins",
     rating: 4.7,
   },
+  {
+    id: "clean-clothes-hu",
+    title: "Clean Clothes Hub",
+    offer: "₹100 off on 1st order",
+    services: "Dry Cleaning, Stain Removal",
+    pickup: "Pickup within 30 mins",
+    rating: 4.7,
+  },
   // ... more shops
 ];
 
-  
+export const services = [
+  {
+    id: 1,
+    title: "Washing",
+    image: require("@/assets/images/E.png"),
+  },
+  {
+    id: 2,
+    title: "Ironing",
+    image: require("@/assets/images/F.png"),
+  },
+  {
+    id: 3,
+    title: "Wash & Iron",
+    image: require("@/assets/images/G.png"),
+  },
+  {
+    id: 4,
+    title: "Dry Cleaning",
+    image: require("@/assets/images/H.png"),
+  },
+  {
+    id: 5,
+    title: "Shoe Cleaning",
+    image: require("@/assets/images/E.png"),
+  },
+  {
+    id: 6,
+    title: "Carpet Cleaning",
+    image: require("@/assets/images/F.png"),
+  },
+  {
+    id: 7,
+    title: "Curtain Cleaning",
+    image: require("@/assets/images/G.png"),
+  },
+  {
+    id: 8,
+    title: "Stain Removal",
+    image: require("@/assets/images/H.png"),
+  },
+];
+
+
+export const featuredOrders = [
+  {
+    orderId: "12345",
+    status: "in_cleaning" as const,
+    eta: "Tomorrow, 11:00 AM",
+    image: require("@/assets/images/H.png"),
+  },
+  {
+    orderId: "67890",
+    status: "out_for_delivery" as const,
+    eta: "Today, 6:00 PM",
+    image: require("@/assets/images/H.png"),
+  },
+];
+
+
+
+export const availableServices = [
+  {
+    id: "wash",
+    name: "Premium Wash",
+    price: 50,
+    description: "Gentle wash for all fabric types, preserving fabric quality.",
+  },
+  {
+    id: "iron",
+    name: "Expert Ironing",
+    price: 10,
+    description: "Perfectly pressed clothes for a crisp and professional look.",
+  },
+  {
+    id: "dry",
+    name: "Eco Dry Cleaning",
+    price: 80,
+    description: "Eco-friendly care for delicate and intricate garments.",
+  },
+  {
+    id: "fold",
+    name: "Careful Folding",
+    price: 5,
+    description: "Neat folds, making your laundry ready for storage.",
+  },
+  {
+    id: "delivery",
+    name: "Express Delivery",
+    price: 30,
+    description: "Doorstep pickup & delivery, saving you time.",
+  },
+];
